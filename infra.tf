@@ -3,7 +3,7 @@ resource "aws_instance" "expense_instances" {
   count         = length(var.components)
   ami           = data.aws_ami.expense_ami.id
   vpc_security_group_ids = [aws_security_group.expense_sg.id]
-  instance_type = lookup(var.instance_type, terrafor.environment)
+  instance_type = lookup(var.instance_type, terraform.workspace)
   tags          = merge({Name = "${var.components[count.index]}-${local.common_name}"}, var.common_tags)
   provisioner "local-exec" {
   command = "echo The server's IP address is ${self.private_ip}"
