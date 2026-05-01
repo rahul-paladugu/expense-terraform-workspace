@@ -3,15 +3,12 @@ variable "components" {
 }
 variable "instance_type" {
     default = {
-        dev = "t2.micro"
+        dev = "t3.micro"
         prod = "t3.micro"
     }
 }
 variable "region" {
     default = "use1"
-}
-variable "environment" {
-    default = "dev"
 }
 variable "project" {
     default = "expense"
