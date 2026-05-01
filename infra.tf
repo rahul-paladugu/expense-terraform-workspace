@@ -17,7 +17,7 @@ resource "aws_instance" "expense_instances" {
 }
 #Create a security group for the project update the ports using Dynamic Block
 resource "aws_security_group" "expense_sg" {
-  name        = "allow-limited-access"
+  name        = local.sg_name
   description = "Allow expense inbound and outbound traffic"
   dynamic "egress" {
   for_each = var.sg_ports
